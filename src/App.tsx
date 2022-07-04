@@ -1,6 +1,7 @@
-import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import messaging from '@react-native-firebase/messaging';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
 import {
   ChatScreen,
@@ -47,13 +48,63 @@ const UsersStackNavigator = () => {
   )
 }
 
+const Stack = createNativeStackNavigator();
+
+// Note that an async function or a function that returns a Promise
+// is required for both subscribers.
+async function onMessageReceived(message) {
+    // Do something
+    console.log('Notification caused app to open from background state:>>>>', message);
+}
+
+
 const App = () => {
-  return (
+    //const navigation = useNavigation();
+    const [loading, setLoading] = useState(true);
+    const [initialRoute, setInitialRoute] = useState('Home');
+    messaging().registerDeviceForRemoteMessages().then(x => {
+        messaging().getToken().then(token => {
+            console.log('>>>>Token', token);x
+        });
+    });
+    messaging().onMessage(onMessageReceived);
+    messaging().setBackgroundMessageHandler(onMessageReceived);
+
+
+
+    useEffect(()=> {
+
+        messaging().onMessage(onMessageReceived);
+        messaging().setBackgroundMessageHandler(onMessageReceived);
+
+        messaging().onNotificationOpenedApp(remoteMessage => {
+            console.log('Notification caused app to open from background state:',
+                remoteMessage.notification,
+            );
+           // navigation.navigate(remoteMessage.data.type);
+        });
+
+        // Check whether an initial notification is available
+        messaging()
+            .getInitialNotification()
+            .then(remoteMessage => {
+                if (remoteMessage) {
+                    console.log('Notification caused app to open from quit state:',
+                        remoteMessage.notification,
+                    );
+                   // setInitialRoute(remoteMessage.data.type); // e.g. "Settings"
+                }
+                setLoading(false);
+            });
+
+
+    },[])
+
+    return (
     <NavigationContainer>
       <RootStack.Navigator
         initialRouteName='Main'
-        screenOptions={{ headerShown: false }}
-      >
+        screenOptions={{ headerShown: false }}>
         <RootStack.Screen
           name='Auth'
           component={AuthStackNavigator}

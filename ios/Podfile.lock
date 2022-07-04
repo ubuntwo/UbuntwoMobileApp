@@ -362,6 +362,9 @@ PODS:
   - Firebase/Firestore (8.8.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 8.8.0)
+  - Firebase/Messaging (8.8.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (~> 8.8.0)
   - Firebase/Storage (8.8.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 8.8.0)
@@ -392,6 +395,20 @@ PODS:
     - "gRPC-C++ (~> 1.28.0)"
     - leveldb-library (~> 1.22)
     - nanopb (~> 2.30908.0)
+  - FirebaseInstallations (8.15.0):
+    - FirebaseCore (~> 8.0)
+    - GoogleUtilities/Environment (~> 7.7)
+    - GoogleUtilities/UserDefaults (~> 7.7)
+    - PromisesObjC (< 3.0, >= 1.2)
+  - FirebaseMessaging (8.8.0):
+    - FirebaseCore (~> 8.0)
+    - FirebaseInstallations (~> 8.0)
+    - GoogleDataTransport (~> 9.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
+    - GoogleUtilities/Environment (~> 7.4)
+    - GoogleUtilities/Reachability (~> 7.4)
+    - GoogleUtilities/UserDefaults (~> 7.4)
+    - nanopb (~> 2.30908.0)
   - FirebaseStorage (8.8.0):
     - FirebaseCore (~> 8.0)
     - GTMSessionFetcher/Core (~> 1.5)
@@ -415,6 +432,8 @@ PODS:
     - GoogleUtilities/Reachability
   - "GoogleUtilities/NSData+zlib (7.7.0)"
   - GoogleUtilities/Reachability (7.7.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (7.7.0):
     - GoogleUtilities/Logger
   - "gRPC-C++ (1.28.2)":
     - "gRPC-C++/Implementation (= 1.28.2)"
@@ -740,11 +759,20 @@ PODS:
     - Firebase/Firestore (= 8.8.0)
     - React-Core
     - RNFBApp
+  - RNFBMessaging (15.1.1):
+    - Firebase/Messaging (= 8.8.0)
+    - React-Core
+    - RNFBApp
   - RNFBStorage (12.9.3):
     - Firebase/Storage (= 8.8.0)
     - React-Core
     - RNFBApp
   - RNFileViewer (2.1.5):
+    - React-Core
+  - RNNotifee (5.4.0):
+    - React-Core
+    - RNNotifee/NotifeeCore (= 5.4.0)
+  - RNNotifee/NotifeeCore (5.4.0):
     - React-Core
   - RNScreens (3.13.1):
     - React-Core
@@ -791,8 +819,10 @@ DEPENDENCIES:
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - "RNFBAuth (from `../node_modules/@react-native-firebase/auth`)"
   - "RNFBFirestore (from `../node_modules/@react-native-firebase/firestore`)"
+  - "RNFBMessaging (from `../node_modules/@react-native-firebase/messaging`)"
   - "RNFBStorage (from `../node_modules/@react-native-firebase/storage`)"
   - RNFileViewer (from `../node_modules/react-native-file-viewer`)
+  - "RNNotifee (from `../node_modules/@notifee/react-native`)"
   - RNScreens (from `../node_modules/react-native-screens`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -805,6 +835,8 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseFirestore
+    - FirebaseInstallations
+    - FirebaseMessaging
     - FirebaseStorage
     - fmt
     - GoogleDataTransport
@@ -891,10 +923,14 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-firebase/auth"
   RNFBFirestore:
     :path: "../node_modules/@react-native-firebase/firestore"
+  RNFBMessaging:
+    :path: "../node_modules/@react-native-firebase/messaging"
   RNFBStorage:
     :path: "../node_modules/@react-native-firebase/storage"
   RNFileViewer:
     :path: "../node_modules/react-native-file-viewer"
+  RNNotifee:
+    :path: "../node_modules/@notifee/react-native"
   RNScreens:
     :path: "../node_modules/react-native-screens"
   Yoga:
@@ -912,6 +948,8 @@ SPEC CHECKSUMS:
   FirebaseCore: 98b29e3828f0a53651c363937a7f7d92a19f1ba2
   FirebaseCoreDiagnostics: 92e07a649aeb66352b319d43bdd2ee3942af84cb
   FirebaseFirestore: 29baf05d5e7e0d5003eb34e5805d92b9858b36d4
+  FirebaseInstallations: 40bd9054049b2eae9a2c38ef1c3dd213df3605cd
+  FirebaseMessaging: 419b5c9d84f294a753c6501d8cfb9ced1ce37304
   FirebaseStorage: 54ff752ecbd27f1c354c3f5e8c55f6ad5783699b
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 3d02b25ca00c2d456734d0bcff864cbc62f6ae1a
@@ -955,8 +993,10 @@ SPEC CHECKSUMS:
   RNFBApp: aa6a864798daa054bda002bb3d6905800d6d4156
   RNFBAuth: 7ec7cd7ed1b4065489c8b376c9e3cb832521c759
   RNFBFirestore: 3471ec1625641f6c1fee63ab491e5e429d387f6f
+  RNFBMessaging: ec5c4fbca527c37805cceb15c8f332b7245c12fb
   RNFBStorage: 247515338b557f77a8c3aa5dcdbba0b4714e522b
   RNFileViewer: ce7ca3ac370e18554d35d6355cffd7c30437c592
+  RNNotifee: 522d3c88ea8eb38f8d3b75da05fca684b2359a7e
   RNScreens: 40a2cb40a02a609938137a1e0acfbf8fc9eebf19
   Yoga: 7ab6e3ee4ce47d7b789d1cb520163833e515f452
 

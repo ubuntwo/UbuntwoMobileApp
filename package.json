@@ -23,24 +23,23 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "compile": "rm -rf lib && tsc -p .",
-
-    "prepare": "yarn compile",
     "type-coverage": "type-coverage"
   },
   "dependencies": {
-    "react": "18.0.0",
-    "react-native": "0.69.1",
     "@expo/react-native-action-sheet": "^3.12.0",
     "@flyerhq/react-native-android-uri-path": "^2.2.2",
     "@flyerhq/react-native-chat-ui": "^1.4.3",
+    "@notifee/react-native": "^5.4.0",
     "@react-native-firebase/app": "^12.9.3",
     "@react-native-firebase/auth": "^12.9.3",
     "@react-native-firebase/firestore": "^12.9.3",
+    "@react-native-firebase/messaging": "^15.1.1",
     "@react-native-firebase/storage": "^12.9.3",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.5",
     "faker": "^5.5.3",
+    "react": "18.0.0",
+    "react-native": "0.69.1",
     "react-native-document-picker": "^7.1.1",
     "react-native-file-viewer": "^2.1.4",
     "react-native-image-picker": "^4.1.2",
@@ -48,15 +47,12 @@
     "react-native-screens": "^3.8.0"
   },
   "devDependencies": {
-    "metro-react-native-babel-preset": "^0.70.3",
-    "react-test-renderer": "18.0.0",
-    "@react-native-firebase/app": "^12.9.3",
-    "@react-native-firebase/auth": "^12.9.3",
-    "@react-native-firebase/firestore": "^12.9.3",
-    "type-coverage": "^2.18.2",
     "@babel/core": "^7.15.8",
     "@babel/runtime": "^7.15.4",
     "@react-native-community/eslint-config": "^3.0.1",
+    "@react-native-firebase/app": "^12.9.3",
+    "@react-native-firebase/auth": "^12.9.3",
+    "@react-native-firebase/firestore": "^12.9.3",
     "@types/faker": "^5.5.9",
     "@types/jest": "^27.0.2",
     "@types/react-native": "^0.66.0",
@@ -65,15 +61,18 @@
     "eslint": "^7.32.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "jest": "^27.3.1",
+    "metro-react-native-babel-preset": "^0.70.3",
+    "react-test-renderer": "18.0.0",
+    "type-coverage": "^2.18.2",
     "typescript": "^4.4.4"
   },
   "peerDependencies": {
-  "@react-native-firebase/app": "*",
-  "@react-native-firebase/auth": "*",
-  "@react-native-firebase/firestore": "*",
-  "react": "*",
-  "react-native": "*"
-},
+    "@react-native-firebase/app": "*",
+    "@react-native-firebase/auth": "*",
+    "@react-native-firebase/firestore": "*",
+    "react": "*",
+    "react-native": "*"
+  },
   "jest": {
     "preset": "react-native",
     "moduleFileExtensions": [

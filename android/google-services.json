@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "749020115791",
+    "project_id": "ubuntwomobileapp",
+    "storage_bucket": "ubuntwomobileapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:749020115791:android:21ed0e458a73552ada8b3a",
+        "android_client_info": {
+          "package_name": "com.ubuntwomobileapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "749020115791-lehhrddo13ge0sna9m3spd1gsbb6v3i0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCHaod6QB-a-NIPFyDU-IrWbYDd7meN5w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "749020115791-lehhrddo13ge0sna9m3spd1gsbb6v3i0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "749020115791-6soejpp87j8e2jrujhg1k6s2jvaub304.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.UbuntwoMobileApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
